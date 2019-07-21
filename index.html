@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Cats</title>
+	</head>
+	<body>
+		<h1>Scrape cats fast</h1>
+		<a href="/cat">Example</a>
+		<div id="cat">
+			<p id="getting-cat">Getting cat<span id="elipses"></span></p>
+		</div>
+	</body>
+	<script>
+		const elipses = document.querySelector("#elipses");
+
+		const animateElipses = setInterval(() => {
+			elipses.innerHTML = elipses.innerHTML + ".";
+		}, 500);
+
+		(async () => {
+			const res = await fetch("/cat");
+			const data = await res.json();
+			const newImg = document.createElement("img");
+
+			newImg.src = data.img;
+			newImg.alt = "cat lol";
+
+			document.querySelector("#cat").appendChild(newImg);
+
+			document.querySelector("#getting-cat").innerHTML = "";
+		})();
+	</script>
+</html>

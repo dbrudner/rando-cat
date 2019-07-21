@@ -1,8 +1,13 @@
 const express = require("express");
+const path = require("path");
 const PORT = process.env.PORT || 3000;
 const Scrapelizer = require("@dbrudner/goog-web-scraper");
 
 const app = express();
+
+app.get("/", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "index.html"));
+});
 
 app.get("/:term", async (req, res) => {
 	const { term } = req.params;
