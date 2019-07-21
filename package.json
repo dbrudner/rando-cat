@@ -1,0 +1,16 @@
+{
+	"name": "cats-api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node ./app.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@dbrudner/goog-web-scraper": "^1.0.1",
+		"express": "^4.17.1"
+	}
+}
