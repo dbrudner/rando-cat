@@ -4,12 +4,12 @@ const Scrapelizer = require("@dbrudner/goog-web-scraper");
 
 const app = express();
 
-app.get("/", async (req, res) => {
-	const catScraper = new Scrapelizer("cat");
+app.get("/:term", async (req, res) => {
+	const { term } = req.params;
 
-	const img = await catScraper.scrape();
+	const scraper = new Scrapelizer(term || "cat");
 
-	console.log(img);
+	const img = await scraper.scrape();
 
 	res.json({ img: await img });
 });
