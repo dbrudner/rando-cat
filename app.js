@@ -7,7 +7,9 @@ const app = express();
 app.get("/:term", async (req, res) => {
 	const { term } = req.params;
 
-	const scraper = new Scrapelizer(term || "cat");
+	const scraper = new Scrapelizer(term || "cat", {
+		args: ["--no-sandbox", "--disable-setuid-sandbox"],
+	});
 
 	const img = await scraper.scrape();
 
