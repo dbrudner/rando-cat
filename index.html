@@ -4,33 +4,30 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Cats</title>
+		<link rel="stylesheet" href="/style.css" />
 	</head>
 	<body>
-		<h1>Scrape cats fast</h1>
-		<a href="/cat">Example</a>
-		<div id="cat">
-			<p id="getting-cat">Getting cat<span id="elipses"></span></p>
+		<div class="container">
+			<h1>Get cats fast</h1>
+			<a href="/search?term=cat" target="_blank">Example JSON</a>
+			<div id="cat">
+				<p id="getting-cat">Getting cat<span id="elipses"></span></p>
+			</div>
+			<div class="code-container">
+				<code>
+					(async () => { 
+						const res = await fetch("https://get-rando-img.herokuapp.com//search?term=cat");
+						const data = await res.json();
+						console.log(data.img); 
+					})();
+				</code>
+			</div>
 		</div>
 	</body>
-	<script>
-		const elipses = document.querySelector("#elipses");
-
-		const animateElipses = setInterval(() => {
-			elipses.innerHTML = elipses.innerHTML + ".";
-		}, 500);
-
-		(async () => {
-			const res = await fetch("/cat");
-			const data = await res.json();
-			const newImg = document.createElement("img");
-
-			newImg.src = data.img;
-			newImg.alt = "cat lol";
-
-			document.querySelector("#cat").appendChild(newImg);
-
-			document.querySelector("#getting-cat").innerHTML = "";
-		})();
-	</script>
+	<script type="text/javascript" src="./script.js"></script>
 </html>

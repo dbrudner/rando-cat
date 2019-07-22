@@ -1,0 +1,25 @@
+.container {
+	max-width: 1180px;
+	margin: auto;
+	font-family: "Lato", sans-serif;
+	text-align: center;
+}
+
+.cat-img-container {
+	padding: 5px;
+	border: 1px solid #cac8c8;
+	display: inline-block;
+	border-radius: 5px;
+}
+
+.code-container {
+	margin-top: 30px;
+}
+
+.get-new-cat {
+	margin-top: 30px;
+}
+
+.hide {
+	display: none;
+}

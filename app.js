@@ -5,15 +5,17 @@ const Scrapelizer = require("@dbrudner/goog-web-scraper");
 
 const app = express();
 
+app.use(express.static("static"));
+
 app.get("/", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "index.html"));
 });
 
-app.get("/:term", async (req, res) => {
-	const { term } = req.params;
+app.get("/search", async (req, res) => {
+	const { term } = req.query;
 
 	const scraper = new Scrapelizer(term || "cat", {
-		args: ["--no-sandbox", "--disable-setuid-sandbox"],
+		args: ["--no-sandbox", "--disable-setuid-sandbox"]
 	});
 
 	const img = await scraper.scrape();
