@@ -3,7 +3,6 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const Scrapelizer = require("@dbrudner/goog-web-scraper");
 
-const app = express();
 
 app.use(express.static("static"));
 
